@@ -11,7 +11,7 @@ const url = "https://62e6bd340e5d74566aebd18b.mockapi.io/api/v1/products";
 
 const columns = [
   {
-    title: "Id",
+    title: "#",
     dataIndex: "id",
     key: "id",
   },
@@ -48,7 +48,8 @@ function App() {
     axios
       .get(url)
       .then((res) => {
-        setProducts(res.data.products);
+        const data = res.data.products.map((el) => ({ ...el, key: el.id }));
+        setProducts(data);
       })
       .then((err) => {
         if (err) console.log(err);
@@ -57,19 +58,28 @@ function App() {
 
   const handleSearch = (val) => {
     setSearch(val);
+    if (val.length > 3) {
+      const arr = products.filter((item) =>
+        item.name.toLowerCase().includes(val.toLowerCase())
+      );
+      setFilterData(arr);
+    }
   };
 
   return (
     <section className="App">
       <div className="header">
         <InputComp
-          placeholder="Search"
+          placeholder="Search by name"
           value={search}
           handleSearch={handleSearch}
         />
       </div>
       <div>
-        <TableComp columns={columns} data={products} />
+        <TableComp
+          columns={columns}
+          data={search.length > 3 && filterData ? filterData : products}
+        />
       </div>
     </section>
   );
