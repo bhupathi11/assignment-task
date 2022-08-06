@@ -11,27 +11,80 @@ body{
   padding: 20px;
 }
 
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.filters {
+  display: flex;
+  justify-content: stretch;
+  align-items: center;
+  margin: 10px 0px;
+}
+.filters div:first-child{
+  padding-right: 5px;
+  width: 100%;
+}
+
+.filters div:last-child{
+  padding-left: 5px;
+}
+
 @media screen and (max-width: 767px) {
-  .header {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-  }
   .header input {
     margin: 10px 0px;
     max-width: 100%;
   }
+  .filters {
+    width: 100%;
+  }
+  .filters>div {
+    min-width: 50%;
+    max-width: 300px;
+  }
 }
 
 @media screen and (min-width: 768px) {
-  .header {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-  }
   .header input {
     max-width: 40%;
     margin: 0px 10px;
+  }
+  .filters {
+    width: 40%;
+  }
+  .filters>div {
+    min-width: 50%;
+    max-width: 300px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .header input {
+    max-width: 60%;
+    margin: 0px 10px;
+  }
+  .filters {
+    width: 60%;
+  }
+  .filters>div {
+    min-width: 50%;
+    max-width: 300px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .header input {
+    max-width: 40%;
+    margin: 0px 10px;
+  }
+  .filters {
+    width: 40%;
+  }
+  .filters>div {
+    min-width: 50%;
+    max-width: 300px;
   }
 }
