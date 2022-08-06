@@ -1,0 +1,37 @@
+body{
+  margin: 0px;
+  padding: 0px;
+}
+
+.App {
+  padding: 20px;
+}
+
+.header {
+  padding: 20px;
+}
+
+@media screen and (max-width: 767px) {
+  .header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .header input {
+    margin: 10px 0px;
+    max-width: 100%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .header input {
+    max-width: 40%;
+    margin: 0px 10px;
+  }
+}
